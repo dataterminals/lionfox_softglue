@@ -1,0 +1,7 @@
+{
+    "setting-enabled": "Enable Soft Pitch Glue Patch",
+    "setting-enabled-desc": "When on, cooked pitch glue uses the hours value below instead of vanilla's 4. When off, vanilla behavior is restored.",
+
+    "setting-harden_hours": "Hours Until Glue Hardens",
+    "setting-harden_hours-desc": "In-game hours before hot pitch glue hardens to cold. 0 = never (recommended, lets you retrieve clutter). Vanilla is 4. Requires restart to apply."
+}

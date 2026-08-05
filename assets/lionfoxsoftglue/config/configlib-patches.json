@@ -1,0 +1,31 @@
+{
+    "version": 1,
+    "patches": {
+        "boolean": {
+            "lionfoxsoftglue:config/lionfoxsoftglue.json": {
+                "enabled": "enabled"
+            }
+        },
+        "number": {
+            "lionfoxsoftglue:config/lionfoxsoftglue.json": {
+                "hardenHours": "harden_hours"
+            }
+        }
+    },
+    "settings": [
+        {
+            "code": "enabled",
+            "type": "boolean",
+            "ingui": "lionfoxsoftglue:setting-enabled",
+            "default": true
+        },
+        {
+            "code": "harden_hours",
+            "type": "float",
+            "ingui": "lionfoxsoftglue:setting-harden_hours",
+            "default": 0.0,
+            "logarithmic": false,
+            "range": { "min": 0.0, "max": 240.0 }
+        }
+    ]
+}
