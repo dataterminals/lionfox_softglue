@@ -3,12 +3,14 @@
     "modid": "lionfoxsoftglue",
     "name": "Soft Pitch Glue",
     "description": "Stops (or delays) cooked pitch glue from hardening, so clutter objects glued with it can be retrieved later. Configurable via the in-game vsimgui panel (requires configlib) or, as a fallback, ModConfig/lionfoxsoftglue.json.",
-    "authors": [ "lionfox" ],
-    "version": "1.0.1",
+    "authors": [
+        "lionfox"
+    ],
+    "version": "1.1.0",
     "side": "Universal",
     "requiredOnClient": false,
     "requiredOnServer": true,
     "dependencies": {
-        "game": "1.20.0"
+        "game": "1.22.0"
     }
 }
