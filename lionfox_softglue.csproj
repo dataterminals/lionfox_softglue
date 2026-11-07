@@ -4,7 +4,7 @@
     <!-- Vintage Story 1.22 runs on .NET 10; mod assemblies must match. -->
     <TargetFramework>net10.0</TargetFramework>
     <Nullable>enable</Nullable>
-    <AssemblyName>lionfox_softglue</AssemblyName>
+    <AssemblyName>$(ModAssembly)</AssemblyName>
     <RootNamespace>lionfox_softglue</RootNamespace>
     <!-- Keep this in step with modinfo.json's "version". PackageMod names the
          zip from it, and two different builds sharing one version string is the
@@ -71,6 +71,16 @@
     <Delete Files="$(ModZipPath)" />
     <ZipDirectory SourceDirectory="$(ModStageDir)" DestinationFile="$(ModZipPath)" />
     <Message Importance="high" Text="Packaged mod -> $(ModZipPath)" />
+  </Target>
+
+  <!-- The output folder keeps only this version's DLL: an older one beside it (lionfox_softglue.dll from before the names
+       carried the version, or lionfox_softglue-<older>.dll) would be a second DLL with mod systems in a loadable mod folder. -->
+  <Target Name="RemoveOlderModDll" AfterTargets="Build">
+    <ItemGroup>
+      <OlderModDll Include="$(OutDir)lionfox_softglue.dll;$(OutDir)lionfox_softglue.deps.json;$(OutDir)lionfox_softglue.pdb;$(OutDir)lionfox_softglue-*.dll;$(OutDir)lionfox_softglue-*.deps.json;$(OutDir)lionfox_softglue-*.pdb"
+                   Exclude="$(OutDir)$(TargetName).dll;$(OutDir)$(TargetName).deps.json;$(OutDir)$(TargetName).pdb" />
+    </ItemGroup>
+    <Delete Files="@(OlderModDll)" />
   </Target>
 
 </Project>
